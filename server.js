@@ -25,7 +25,7 @@ app.use("/api/project", require("./routes/project"));
 app.use("/api/contact", require("./routes/contact"));
 app.use("/api/about", require("./routes/about"));
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
   app.get("*", (req, res) => {
