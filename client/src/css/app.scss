@@ -1,0 +1,140 @@
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*- Shadows *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+.box-shadow {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.418);
+}
+
+.box-shadow-1 {
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.418);
+}
+
+.one-edge-shadow {
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.705);
+}
+
+.one-edge-shadow-1 {
+  box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.445);
+}
+
+.text-shadow {
+  background-clip: text;
+  text-shadow: 0px 3px 3px rgb(0, 0, 0);
+}
+
+.text-shadow-smooth {
+  text-shadow: 1px 0px 1px #ccc, 0px 1px 1px #eee, 2px 1px 1px #ccc,
+    1px 2px 1px #eee, 3px 2px 1px #ccc;
+}
+
+//*-*-*-*-*-*-*-*-*-*- The 1300px Mark Break Point*-*-*-*-*-*-*-*-*-*-*
+@mixin media-desktop {
+  @media screen and (min-width: break-point(break-point-desktop)) {
+    @content;
+  }
+}
+
+//*-*-*-*-*-*-*-*-*-*- The 800px Mark Break Point*-*-*-*-*-*-*-*-*-*-*
+@mixin media-tablet {
+  @media screen and (max-width: break-point(break-point-tablet)) {
+    @content;
+  }
+}
+
+//*-*-*-*-*-*-*-*-*-*- The 600px Mark Break Point*-*-*-*-*-*-*-*-*-*-*
+@mixin media-medium {
+  @media screen and (max-width: break-point(break-point-medium)) {
+    @content;
+  }
+}
+
+//*-*-*-*-*-*-*-*-*-*- The 400px Mark Break Point*-*-*-*-*-*-*-*-*-*-*
+@mixin media-small {
+  @media screen and (max-width: break-point(break-point-small)) {
+    @content;
+  }
+}
+// *-*-*-*-*-*-*-*-*-*-*-*-*-*-------------------------------*-*-*-*-*-*-*--*-*-*--*-*-*-*-*-*-*-*
+
+::selection {
+  background-color: var(--color-background-main);
+}
+
+@import "reset";
+@import "variables";
+@import "utilities";
+@import "./layouts/header";
+
+// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*- Placeholder Styles *-*-*-*-*-*-*-*-*-*-*-*-*
+// Background Properties
+%bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+// Section Padding
+%sec-padding {
+  padding: 6vh 4vw;
+}
+
+// Styles for Section headings (h2)
+%sec-heading {
+  font-size: font-size(font-size-medium);
+  font-weight: font-weight(font-weight-light);
+  letter-spacing: 0.2rem;
+  color: var(--color-text);
+}
+
+// Styles for Section paragraphs (p)
+%sec-para {
+  font-size: font-size(font-size-small);
+  color: var(--color-text);
+  font-family: "Balsamiq Sans", cursive;
+  letter-spacing: 0.2rem;
+}
+
+//Styles for Section h3
+%sec-h3 {
+  font-size: font-size(font-size-small);
+  color: var(--color-text);
+}
+
+//Styles for Section h4
+%sec-h4 {
+  color: var(--color-text);
+}
+
+//************************** Scroll to top button *******************
+.scroll {
+  position: fixed;
+  bottom: 70rem;
+  right: 4rem;
+  height: 4rem;
+  width: 4rem;
+  background-image: url("../images/home/scroll.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  padding: 1rem;
+  border-radius: 50%;
+  z-index: 30;
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(1, 0, 0, 1);
+}
+
+.scroll.active {
+  visibility: visible;
+  opacity: 1;
+  bottom: 4rem;
+}
+
+//*-*-*-*-*-*- Dark Mode Smooth Transition For All HTML Elements -*-*-*-*-*-*-*
+html.transition,
+html.transition *,
+html.transition *::before,
+html.transition *::after {
+  transition: all 0.5s !important;
+  transition-delay: 0 !important;
+}
