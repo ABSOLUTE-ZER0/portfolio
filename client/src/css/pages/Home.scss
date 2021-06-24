@@ -1,0 +1,119 @@
+.home {
+  grid-column: container-start / container-end;
+
+  &__background {
+    background: url("../../images/home/black-back.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80rem;
+    display: flex;
+    position: relative;
+
+    img {
+      position: absolute;
+      bottom: 0;
+      left: 40%;
+      transform: translateX(-50%);
+      height: 90%;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    div {
+      color: var(--color-text);
+    }
+
+    .div1 {
+      flex: 40%;
+      .name {
+        font-size: 6rem;
+        text-align: right;
+        padding-right: 5rem;
+        font-family: "Berkshire Swash", cursive;
+        margin-top: 20rem;
+      }
+    }
+    .div2 {
+      flex: 60%;
+      padding-left: 25rem;
+      margin-top: 25rem;
+      padding-right: 25%;
+      display: block;
+      .title {
+        font-size: 2rem;
+        text-transform: capitalize;
+        color: var(--color-active);
+        margin-bottom: 2rem;
+      }
+
+      .subtitle {
+        font-size: 3rem;
+        font-weight: 500;
+        margin-bottom: 2rem;
+      }
+
+      .desc {
+        font-size: 1.7rem;
+        line-height: 1.5;
+        font-weight: 300;
+        margin-bottom: 2rem;
+      }
+
+      .phone,
+      .email {
+        color: var(--color-active);
+        font-size: 1.5rem;
+        margin-bottom: 0rem;
+        padding: 0;
+        font-weight: 600;
+      }
+
+      .links {
+        a:link:first-child,
+        a:visited:first-child {
+          font-size: font-size(font-size-small);
+          padding: calc(0.5rem + 1vh) calc(1rem + 1vw); 
+          text-transform: uppercase;
+          position: relative;
+          border-radius: 0.5rem;
+          z-index: 1;
+          transition: all 0.5s ease-in-out;
+          background-color: var(--color-hover);
+          border: 0.2rem solid var(--color-hover);
+          color: var(--color-white);
+          margin-right: calc(1rem + 2vw);
+        }
+
+        a:link:first-child::before,
+        a:visited:first-child::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background-color: var(--color-white);
+          border-radius: inherit;
+          z-index: -1;
+          transform: scale(0);
+          transition: all 0.5s ease-in-out;
+        }
+
+        a:hover:first-child::before,
+        a:active:first-child::before {
+          transform: scale(1);
+        }
+
+        a:first-child:hover,
+        a:first-child:active {
+          color: var(--color-black);
+        }
+      }
+    }
+  }
+
+  &__background[data-theme="light"] {
+    background: url("../../images/home/white-back.png");
+    background-size: cover;
+  }
+}

@@ -26,6 +26,109 @@
     1px 2px 1px #eee, 3px 2px 1px #ccc;
 }
 
+.titeStyle1 {
+  position: relative;
+  &::before {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 2px;
+    content: "";
+    background-color: #c50000;
+  }
+
+  span {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    line-height: 3em;
+    padding-left: 0.25em;
+    color: rgba(0, 0, 0, 0.4);
+    padding-bottom: 10px;
+  }
+}
+
+.titeStyle2 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.5em;
+  padding-bottom: 5px;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    width: 55px;
+    background-color: var(--color-hover-m);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    left: 55px;
+    bottom: 2px;
+    height: 1px;
+    width: 95%;
+    max-width: 255px;
+    background-color: var(--color-hover);
+  }
+}
+
+.titleStyle3 {
+  font-size: 26px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  padding-bottom: 13px;
+  position: relative;
+  width: fit-content;
+  margin-left: auto;
+  transition: transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+  &::before {
+    background-color: #c50000;
+    content: "";
+    display: block;
+    position: absolute;
+    left: -30px;
+    top: 0;
+    height: 3px;
+    width: 30%;
+    margin-top: -0.5rem;
+    transition: transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  &::after {
+    background-color: #c50000;
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30%;
+    margin-bottom: 0.5rem;
+    transition: transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+    &::before {
+      transform: translateX(250%);
+      transition: transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+    &::after {
+      transform: translateX(-250%);
+      transition: transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+  }
+}
+
 //*-*-*-*-*-*-*-*-*-*- The 1300px Mark Break Point*-*-*-*-*-*-*-*-*-*-*
 @mixin media-desktop {
   @media screen and (min-width: break-point(break-point-desktop)) {
@@ -56,13 +159,20 @@
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-------------------------------*-*-*-*-*-*-*--*-*-*--*-*-*-*-*-*-*-*
 
 ::selection {
-  background-color: var(--color-background-main);
+  background-color: var(--color-hover);
+  color: var(--color-text);
 }
 
 @import "reset";
 @import "variables";
 @import "utilities";
+
+// layouts
 @import "./layouts/header";
+
+// pages
+@import "./pages/NotFound404.scss";
+@import "./pages/Home.scss";
 
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*- Placeholder Styles *-*-*-*-*-*-*-*-*-*-*-*-*
 // Background Properties

@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../images/logo/logo.png";
 
-const Header = () => {
+const Header = ({ page }) => {
   const menuToggle = () => {
     const header = document.querySelector(".header");
     const menu = document.querySelector(".header__menu");
@@ -15,14 +15,17 @@ const Header = () => {
   const switchDarkMode = () => {
     let checkbox = document.querySelector('input[name="theme"]');
     let htmlElement = document.documentElement;
+    const background = document.getElementById("home-back");
 
     checkbox.addEventListener("change", () => {
       if (checkbox.checked) {
         smoothTrans();
         htmlElement.setAttribute("data-theme", "light");
+        background.setAttribute("data-theme", "light");
       } else {
         smoothTrans();
         htmlElement.setAttribute("data-theme", "dark");
+        background.setAttribute("data-theme", "dark");
       }
     });
 
@@ -31,7 +34,7 @@ const Header = () => {
 
       window.setTimeout(() => {
         htmlElement.classList.remove("transition");
-      }, 1000);
+      }, 2000);
     };
   };
 
@@ -51,25 +54,49 @@ const Header = () => {
 
           <ul className='header__nav--links'>
             <li className='header__nav--links__item'>
-              <a href='/' data-text='Home'>
+              <a
+                style={{
+                  color: page === "home" && "var(--color-active)",
+                  fontWeight: page === "home" && "700",
+                }}
+                href='/'
+                data-text='Home'>
                 Home
               </a>
             </li>
 
             <li className='header__nav--links__item'>
-              <a href='/about' data-text='About'>
+              <a
+                style={{
+                  color: page === "about" && "var(--color-active)",
+                  fontWeight: page === "about" && "700",
+                }}
+                href='/about'
+                data-text='About'>
                 About
               </a>
             </li>
 
             <li className='header__nav--links__item'>
-              <a href='/work' data-text='Work'>
+              <a
+                style={{
+                  color: page === "work" && "var(--color-active)",
+                  fontWeight: page === "work" && "700",
+                }}
+                href='/work'
+                data-text='Work'>
                 Work
               </a>
             </li>
 
             <li className='header__nav--links__item'>
-              <a href='./contact' data-text='Contact'>
+              <a
+                style={{
+                  color: page === "contact" && "var(--color-active)",
+                  fontWeight: page === "contact" && "700",
+                }}
+                href='./contact'
+                data-text='Contact'>
                 Contact
               </a>
             </li>
