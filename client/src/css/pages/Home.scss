@@ -69,10 +69,12 @@
       }
 
       .links {
+        display: flex;
+
         a:link:first-child,
         a:visited:first-child {
           font-size: font-size(font-size-small);
-          padding: calc(0.5rem + 1vh) calc(1rem + 1vw); 
+          padding: calc(0.5rem + 0.5vh) calc(1rem + 1vw);
           text-transform: uppercase;
           position: relative;
           border-radius: 0.5rem;
@@ -82,10 +84,12 @@
           border: 0.2rem solid var(--color-hover);
           color: var(--color-white);
           margin-right: calc(1rem + 2vw);
+          font-weight: 600;
+          margin-top: 1rem;
         }
 
         a:link:first-child::before,
-        a:visited:first-child::before {
+        a:visited:first-child::before { 
           content: "";
           position: absolute;
           top: 0;
@@ -106,14 +110,14 @@
 
         a:first-child:hover,
         a:first-child:active {
-          color: var(--color-black);
+          color: var(--color-hover); 
         }
       }
     }
   }
 
   &__background[data-theme="light"] {
-    background: url("../../images/home/white-back.png");
+    background: url("../../images/home/white-back.jpg");
     background-size: cover;
   }
 }

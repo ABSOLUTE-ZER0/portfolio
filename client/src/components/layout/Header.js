@@ -34,7 +34,7 @@ const Header = ({ page }) => {
 
       window.setTimeout(() => {
         htmlElement.classList.remove("transition");
-      }, 2000);
+      }, 1000);
     };
   };
 
