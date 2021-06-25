@@ -135,8 +135,9 @@
   //*-*-*-*-*-*-*-*-*-*-- The 1000px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
   @include media-tablet {
     &__background {
+      height: fit-content;
+      padding-bottom: 10rem;
       flex-direction: column;
-
       img {
         right: 0%;
         left: unset;
