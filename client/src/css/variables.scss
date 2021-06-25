@@ -2,12 +2,12 @@
 
 // Light Color Palette (Custom Properties)
 html[data-theme="light"] {
-  --color-background-main: rgb(214, 214, 214);
-  --color-background-main-m: rgba(216, 216, 216, 0.55);
+  --color-background-main: rgb(206, 206, 208);
+  --color-background-main-m: rgb(206, 206, 208, 0.55);
   --color-hover: rgb(227, 157, 255);
-  --color-hover-m: rgba(227, 157, 255, 0.65); 
+  --color-hover-m: rgba(227, 157, 255, 0.65);
   --color-active: rgb(172, 68, 179);
-  --color-active-m: rgb(172, 68, 179, 0.65); 
+  --color-active-m: rgb(172, 68, 179, 0.65);
   --color-white: white;
   --color-white-m: rgba(255, 255, 255, 0.5);
   --color-black: black;
@@ -23,8 +23,8 @@ html[data-theme="dark"] {
   --color-hover: rgb(63, 185, 52);
   --color-hover-m: rgba(63, 185, 52, 0.65);
   --color-active: rgb(255, 72, 0);
-  --color-active-m: rgba(255, 0, 217, 0.65); 
-  --color-white: white; 
+  --color-active-m: rgba(255, 0, 217, 0.65);
+  --color-white: white;
   --color-white-m: rgba(255, 255, 255, 0.5);
   --color-black: black;
   --color-black-m: rgba(0, 0, 0, 0.5);
@@ -62,7 +62,8 @@ $font-sizes: (
 $break-points: (
   "break-point-small": 400px,
   "break-point-medium": 600px,
-  "break-point-tablet": 800px,
+  "break-point-large": 800px,
+  "break-point-tablet": 1000px,
   "break-point-desktop": 1300px,
 );
 

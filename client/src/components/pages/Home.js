@@ -36,7 +36,7 @@ const Home = () => {
           <div className='div2'>
             <h5 className='title titeStyle2'>Jack of all trades</h5>
             <h3 className='subtitle'>
-              I'm full stack developer and data scientist
+              I'm a full stack developer and data scientist
             </h3>
             <p className='desc'>
               Aspiring to become proficient in every field related to

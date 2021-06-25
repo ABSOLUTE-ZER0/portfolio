@@ -146,14 +146,14 @@
     }
   }
 
-  //*-*-*-*-*-*-*-*-*-*-- The 1300px Mark Break Point*-*-*-*-*-*-*-*-*-*-*
-  @include media-desktop {
+  //*-*-*-*-*-*-*-*-*-*-- The 1000px Mark Break Point*-*-*-*-*-*-*-*-*-*-*
+  @include media-tablet {
     &__nav {
       &--links {
         &__item {
           a:link,
           a:visited {
-            font-size: 1.7rem;
+            font-size: 1.7rem; 
           }
         }
       }
@@ -162,7 +162,7 @@
 
   //*-*-*-*-*-*-*-*-*-*-- The 800px Mark Break Point*-*-*-*-*-*-*-*-*-*-*
 
-  @include media-tablet {
+  @include media-large {
     &__nav {
       position: fixed;
       top: 0;
@@ -247,7 +247,7 @@
         position: absolute;
         width: 3.5rem;
         height: 0.2rem;
-        background-color: var(--color-white);
+        background-color: var(--color-text);
         top: 0;
         left: 0;
         right: 0;

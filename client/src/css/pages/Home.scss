@@ -14,7 +14,7 @@
       bottom: 0;
       left: 40%;
       transform: translateX(-50%);
-      height: 90%;
+      height: 70rem;
       pointer-events: none;
       z-index: 5;
     }
@@ -28,16 +28,17 @@
       .name {
         font-size: 6rem;
         text-align: right;
-        padding-right: 5rem;
+        padding-right: 6rem;
         font-family: "Berkshire Swash", cursive;
         margin-top: 20rem;
+        margin-left: auto;
       }
     }
     .div2 {
       flex: 60%;
       padding-left: 25rem;
       margin-top: 25rem;
-      padding-right: 25%;
+      padding-right: 10%;
       display: block;
       .title {
         font-size: 2rem;
@@ -89,7 +90,7 @@
         }
 
         a:link:first-child::before,
-        a:visited:first-child::before { 
+        a:visited:first-child::before {
           content: "";
           position: absolute;
           top: 0;
@@ -110,14 +111,142 @@
 
         a:first-child:hover,
         a:first-child:active {
-          color: var(--color-hover); 
+          color: var(--color-hover);
         }
       }
     }
   }
 
   &__background[data-theme="light"] {
-    background: url("../../images/home/white-back.jpg");
+    background: url("https://sandiasexecutivesearch.com/wp-content/uploads/2018/10/GEOMETRIC-WHITE.jpg");
     background-size: cover;
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 1300px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-desktop {
+    &__background {
+      .div2 {
+        padding-left: 20rem;
+        padding-right: 5%;
+      }
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 1000px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-tablet {
+    &__background {
+      flex-direction: column;
+
+      img {
+        right: 0%;
+        left: unset;
+        height: 60rem;
+        top: 10rem;
+      }
+
+      .div1 {
+        .name {
+          font-size: 6rem;
+          text-align: left;
+          margin-left: 10rem;
+          margin-top: 25rem;
+        }
+      }
+      .div2 {
+        padding-left: 5rem;
+        .desc {
+          font-size: 2rem;
+        }
+
+        .phone,
+        .email {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+  //*-*-*-*-*-*-*-*-*-*-- The 800px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-large {
+    &__background {
+      img {
+        height: 50rem;
+      }
+
+      .div1 {
+        .name {
+          font-size: 5rem;
+          margin-left: 5rem;
+        }
+      }
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 600px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-medium {
+    &__background {
+      img {
+        right: -5%;
+        height: 30rem;
+      }
+
+      .div1 {
+        .name {
+          font-size: 3.5rem;
+          margin-left: 5rem;
+          margin-top: 20rem;
+        }
+      }
+      .div2 {
+        margin-top: 15rem;
+
+        .subtitle {
+          font-size: 2.5rem;
+          font-weight: 500;
+          margin-bottom: 2rem;
+        }
+
+        .desc {
+          font-size: 1.7rem;
+        }
+      }
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 600px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-small {
+    &__background {
+      img {
+        right: -10%;
+        height: 30rem;
+      }
+
+      .div1 {
+        .name {
+          font-size: 3rem;
+        }
+      }
+      .div2 {
+        padding: 0 1rem;
+        .title {
+          font-size: 1.8rem;
+          text-transform: capitalize;
+          color: var(--color-active); 
+          margin-bottom: 2rem;
+        }
+
+        .subtitle {
+          font-size: 2.3rem;
+          font-weight: 500;
+          margin-bottom: 2rem;
+        }
+
+        .desc {
+          font-size: 1.7rem;
+          line-height: 1.5;
+          font-weight: 300;
+          margin-bottom: 2rem;
+        }
+      }
+    }
   }
 }
