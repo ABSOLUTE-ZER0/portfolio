@@ -1,0 +1,15 @@
+.skills {
+  grid-column: center-start / center-end;
+
+  &-title {
+    margin-top: 10rem;
+    text-align: center;
+    color: var(--color-text);
+  }
+
+  &-myskills{
+    margin-top: 5rem;
+    text-align: left;
+    color: var(--color-text);
+  }
+}

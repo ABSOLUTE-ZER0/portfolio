@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../layout/Header";
+import Skills from "../layout/Skills";
 import me from "../../images/home/me.png";
 import { Link } from "react-router-dom";
+import classNames from "classnames";
 
 const Home = () => {
   useEffect(() => {
@@ -23,8 +25,10 @@ const Home = () => {
     });
   }, []);
 
+  const [choice, setChoice] = useState("web");
+
   return (
-    <div>
+    <div className='container-custom'>
       <Header page='home' />
       <div className='home'>
         <div id='home-back' className='home__background'>
@@ -34,9 +38,9 @@ const Home = () => {
             </h1>
           </div>
           <div className='div2'>
-            <h5 className='title titeStyle2'>Jack of all trades</h5>
+            <h5 className='title titleStyle2'>Jack of all trades</h5>
             <h3 className='subtitle'>
-              I'm a full stack developer and data scientist
+              I'm full stack developer and data scientist
             </h3>
             <p className='desc'>
               Aspiring to become proficient in every field related to
@@ -47,16 +51,76 @@ const Home = () => {
             </p>
             <p className='phone'>P: +91 6300 499 255</p>
             <p className='email'>E: sricharan.zero@gmail.com</p>
-            <div className="links">
-            <Link to='/contact'>
-              Get in touch
-            </Link>
+            <div className='links'>
+              <Link to='/contact'>Get in touch</Link>
             </div>
           </div>
           <img src={me} alt='me'></img>
         </div>
+
+        <div className='home__worktypes'>
+          <div className='home__worktypes-choice'>
+            <button
+              onClick={async () => {
+                setChoice("web");
+              }}
+              className={classNames("home__worktypes-choice-button", {
+                active: choice === "web",
+              })}>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <i className='fas fa-laptop-code'></i>
+              <p>Full Stack</p>
+            </button>
+            <button
+              onClick={async () => {
+                setChoice("app");
+              }}
+              className={classNames("home__worktypes-choice-button", {
+                active: choice === "app",
+              })}>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <i className='fas fa-mobile-alt'></i>
+              <p>App</p>
+            </button>
+            <button
+              onClick={async () => {
+                setChoice("game");
+              }}
+              className={classNames("home__worktypes-choice-button", {
+                active: choice === "game",
+              })}>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <i className='fas fa-gamepad'></i>
+              <p>Game</p>
+            </button>
+            <button
+              onClick={async () => {
+                setChoice("ds");
+              }}
+              className={classNames("home__worktypes-choice-button", {
+                active: choice === "ds",
+              })}>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <i className='fas fa-robot'></i>
+              <p>Data Science</p>
+            </button>
+          </div>
+        </div>
         <div className='scroll'></div>
       </div>
+      <Skills choice={choice} />
     </div>
   );
 };

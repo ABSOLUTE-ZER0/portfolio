@@ -71,6 +71,7 @@
 
       .links {
         display: flex;
+        margin-top: 1rem;
 
         a:link:first-child,
         a:visited:first-child {
@@ -83,7 +84,7 @@
           transition: all 0.5s ease-in-out;
           background-color: var(--color-hover);
           border: 0.2rem solid var(--color-hover);
-          color: var(--color-white);
+          color: var(--color-text);
           margin-right: calc(1rem + 2vw);
           font-weight: 600;
           margin-top: 1rem;
@@ -120,6 +121,123 @@
   &__background[data-theme="light"] {
     background: url("../../images/home/white-back.jpg");
     background-size: cover;
+  }
+
+  &__worktypes {
+    margin-top: 10rem;
+    &-choice {
+      display: flex;
+      justify-content: center;
+
+      &-button {
+        color: var(--color-text);
+        font-size: font-size(font-size-xsmall);
+        display: flex;
+        flex-flow: column;
+        margin: 0 2rem;
+        font-weight: 900;
+        height: 12rem;
+        width: 12rem;
+        background-color: transparent;
+        align-items: center;
+        justify-content: space-evenly;
+        text-transform: uppercase;
+        border-radius: 0.5rem;
+        border: 0;
+        position: relative;
+        transition: all 0.5s ease-in-out;
+        overflow: hidden;
+
+        i {
+          color: var(--color-text);
+          font-size: 2.5rem;
+        }
+
+        span {
+          display: block;
+          position: absolute;
+        }
+
+        span:first-child {
+          top: 0;
+          left: -100%;
+          height: 0.2rem;
+          width: 100%;
+          background: linear-gradient(90deg, transparent, var(--color-hover));
+          transition: 0.5s;
+          transition-delay: 1s;
+        }
+
+        span:nth-child(2) {
+          top: -100%;
+          right: 0;
+          height: 100%;
+          width: 0.2rem;
+          background: linear-gradient(180deg, transparent, var(--color-hover));
+          transition: 0.5s;
+          transition-delay: 0.75s;
+        }
+
+        span:nth-child(3) {
+          bottom: 0;
+          right: -100%;
+          height: 0.2rem;
+          width: 100%;
+          background: linear-gradient(270deg, transparent, var(--color-hover));
+          transition: 0.7s;
+          transition-delay: 0.25s;
+        }
+
+        span:nth-child(4) {
+          top: 100%;
+          left: 0;
+          height: 100%;
+          width: 0.2rem;
+          background: linear-gradient(360deg, transparent, var(--color-hover));
+          transition: 0.5s;
+          transition-delay: 0s;
+        }
+
+        &:hover,
+        &:focus,
+        &.active {
+          background: var(--color-hover);
+          transition-delay: 1s;
+        }
+
+        &:hover span:first-child,
+        &:focus span:first-child,
+        &.active span:first-child {
+          left: 100%;
+          transition-duration: 1s;
+          transition-delay: 0s;
+        }
+
+        &:hover span:nth-child(2),
+        &:focus span:nth-child(2),
+        &.active span:nth-child(2) {
+          top: 100%;
+          transition-duration: 1s;
+          transition-delay: 0.25s;
+        }
+
+        &:hover span:nth-child(3),
+        &:focus span:nth-child(3),
+        &.active span:nth-child(3) {
+          right: 100%;
+          transition-duration: 1s;
+          transition-delay: 0.5s;
+        }
+
+        &:hover span:nth-child(4),
+        &:focus span:nth-child(4),
+        &.active span:nth-child(4) {
+          top: -100%;
+          transition-duration: 1s;
+          transition-delay: 0.75s;
+        }
+      }
+    }
   }
 
   //*-*-*-*-*-*-*-*-*-*-- The 1300px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
@@ -231,7 +349,7 @@
         .title {
           font-size: 1.8rem;
           text-transform: capitalize;
-          color: var(--color-active); 
+          color: var(--color-active);
           margin-bottom: 2rem;
         }
 
