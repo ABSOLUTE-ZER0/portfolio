@@ -1,13 +1,18 @@
 const express = require("express");
 const router = express.Router();
 
-// GET ROUTE
+const Document = require("../models/Document");
 
-router.get("/", async (req, res) => {
+// POST ROUTE
+
+router.post("/", async (req, res) => {
   try {
-
+    const type = req.body.type
+    const document = await Document.find({type:type});
+    res.json(document);
   } catch (err) {
-
+    console.error(err.message);
+    res.status(500).send("Server Error");
   }
 });
 

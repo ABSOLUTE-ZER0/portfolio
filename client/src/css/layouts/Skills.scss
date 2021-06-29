@@ -1,15 +1,36 @@
 .skills {
   grid-column: center-start / center-end;
 
-  &-title {
+  &__title {
     margin-top: 10rem;
     text-align: center;
     color: var(--color-text);
   }
 
-  &-myskills{
-    margin-top: 5rem;
+  &__myskills{
+    margin-top: 10rem;
     text-align: left;
     color: var(--color-text);
+
+    div{
+      display: flex;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      &:after {
+        content: "";
+        flex: auto;
+      }
+
+      .skill{
+        padding: calc(1rem + 0.5vw);
+        img{
+          width: 10rem;
+          height: auto;
+          user-select: none;
+        }
+      }
+    }
   }
 }

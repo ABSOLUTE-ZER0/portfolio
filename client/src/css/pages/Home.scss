@@ -199,14 +199,12 @@
         }
 
         &:hover,
-        &:focus,
         &.active {
           background: var(--color-hover);
           transition-delay: 1s;
         }
 
         &:hover span:first-child,
-        &:focus span:first-child,
         &.active span:first-child {
           left: 100%;
           transition-duration: 1s;
@@ -214,7 +212,6 @@
         }
 
         &:hover span:nth-child(2),
-        &:focus span:nth-child(2),
         &.active span:nth-child(2) {
           top: 100%;
           transition-duration: 1s;
@@ -222,7 +219,6 @@
         }
 
         &:hover span:nth-child(3),
-        &:focus span:nth-child(3),
         &.active span:nth-child(3) {
           right: 100%;
           transition-duration: 1s;
@@ -230,7 +226,6 @@
         }
 
         &:hover span:nth-child(4),
-        &:focus span:nth-child(4),
         &.active span:nth-child(4) {
           top: -100%;
           transition-duration: 1s;

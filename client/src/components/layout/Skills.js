@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { setSkills } from "../../actions/homeActions";
+import Loader from "../layout/Loader";
 
-const Skills = ({ choice }) => {
+const Skills = ({ choice, home, setSkills }) => {
   useEffect(() => {
     if (choice) {
       if (choice === "web") {
@@ -21,20 +25,50 @@ const Skills = ({ choice }) => {
     };
   }, [choice]);
 
+  useEffect(() => {
+    async function fetchData() {
+      setSkills(choice);
+    }
+    fetchData();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [choice]);
+
   const [page, setPage] = useState("Full Stack Web Development");
 
   return (
     <div className='skills'>
-      <div className='skills-title'>
+      <div className='skills__title'>
         <h1 className='titleStyle1'>{page}</h1>
       </div>
-      <div className='skills-myskills'> 
+      <div className='skills__myskills'>
         <h1 className='titleStyle5'>
           <span>My&thinsp;</span>&thinsp;Skills
         </h1>
+
+        <div>
+          {home.loading ? (
+            <Loader />
+          ) : (
+            home.skills &&
+            home.skills.map((skill, index) => (
+              <div className='skill' key={index}>
+                <img src={skill.img_path} alt="img"></img>
+              </div>
+              ))
+          )}
+        </div>
       </div>
     </div>
   );
 };
 
-export default Skills;
+Skills.prototype = {
+  home: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  home: state.home,
+});
+
+export default connect(mapStateToProps, { setSkills })(Skills);
