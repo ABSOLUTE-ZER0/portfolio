@@ -8,7 +8,7 @@ const Document = require("../models/Document");
 router.post("/", async (req, res) => {
   try {
     const type = req.body.type
-    const document = await Document.find({type:type});
+    const document = await Document.find({type:type}).sort({name:1});
     res.json(document);
   } catch (err) {
     console.error(err.message);

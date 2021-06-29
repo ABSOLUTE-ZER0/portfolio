@@ -1,0 +1,34 @@
+import {
+  LOAD_WORK,
+  WORK_LOADED,
+  WORK_LOADING_FAIL,
+} from "../actions/types";
+
+import API from "../api"
+
+export const setWork = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: LOAD_WORK,
+    });
+
+    const res = await API.get("/api/project");
+    if (res.data.errors) {
+      dispatch({
+        type: WORK_LOADING_FAIL,
+      });
+      return res.data;
+    }
+
+    dispatch({
+      type: WORK_LOADED,
+      payload: res.data,
+    });
+
+    return res;
+  } catch (error) {
+    dispatch({
+      type: WORK_LOADING_FAIL,
+    });
+  }
+};

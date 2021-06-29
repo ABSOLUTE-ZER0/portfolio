@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../layout/Header";
 import Skills from "../layout/Skills";
+import RecentWork from "../layout/RecentWork";
 import me from "../../images/home/me.png";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
@@ -118,9 +119,10 @@ const Home = () => {
             </button>
           </div>
         </div>
-        <div className='scroll'></div>
       </div>
       <Skills choice={choice} />
+      <RecentWork />
+      <div className='scroll'></div>
     </div>
   );
 };

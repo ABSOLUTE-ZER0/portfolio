@@ -7,12 +7,12 @@
     color: var(--color-text);
   }
 
-  &__myskills{
+  &__myskills {
     margin-top: 10rem;
     text-align: left;
     color: var(--color-text);
 
-    div{
+    div {
       display: flex;
       margin-top: 2rem;
       flex-wrap: wrap;
@@ -23,14 +23,55 @@
         flex: auto;
       }
 
-      .skill{
+      .skill {
         padding: calc(1rem + 0.5vw);
-        img{
+        overflow: hidden;
+        position: relative;
+        img {
           width: 10rem;
           height: auto;
           user-select: none;
         }
+
+        .name {
+          position: absolute;
+          bottom: 20%;
+          left: 5%;
+          transform: translate(-25rem, -15rem);
+          cursor: default; 
+          background-color: var(--color-hover);
+          padding: 0.5rem 1rem;
+          border-radius: 0.5rem;
+        }
+      }
+
+      .skill:hover img,
+      .skill:active img {
+        filter: contrast(50%);
+      }
+
+      .skill:hover .name,
+      .skill:active .name {
+        animation: name 0.5s linear forwards;
+        z-index: 1;
       }
     }
+  }
+}
+
+@keyframes name {
+  0% {
+    transform: translate(8rem, -15rem);
+    opacity: 0.3;
+  }
+
+  60% {
+    transform: translate(8rem, 0rem);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
   }
 }

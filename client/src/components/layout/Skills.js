@@ -53,9 +53,10 @@ const Skills = ({ choice, home, setSkills }) => {
             home.skills &&
             home.skills.map((skill, index) => (
               <div className='skill' key={index}>
-                <img src={skill.img_path} alt="img"></img>
+                <h3 className='name'>{skill.name}</h3>
+                <img src={skill.img_path} alt='img'></img>
               </div>
-              ))
+            ))
           )}
         </div>
       </div>

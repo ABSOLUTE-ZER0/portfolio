@@ -235,8 +235,9 @@
 @import "utilities";
 
 // layouts
-@import "./layouts/header";
-@import "./layouts/Skills.scss";
+@import "./layouts/Header";
+@import "./layouts/Skills";
+@import "./layouts/RecentWork";
 
 // pages
 @import "./pages/NotFound404";
