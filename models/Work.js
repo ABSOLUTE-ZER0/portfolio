@@ -14,7 +14,7 @@ const userSchema = mongoose.Schema({
     type: String,
   },
   showcase: {
-    type: Boolean,
+    type: String,
   },
   img: {
     data: Buffer,

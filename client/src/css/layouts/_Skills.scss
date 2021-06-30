@@ -1,5 +1,6 @@
 .skills {
   grid-column: center-start / center-end;
+  min-height: 50rem;
 
   &__title {
     margin-top: 10rem;
@@ -38,7 +39,7 @@
           bottom: 20%;
           left: 5%;
           transform: translate(-25rem, -15rem);
-          cursor: default; 
+          cursor: default;
           background-color: var(--color-hover);
           padding: 0.5rem 1rem;
           border-radius: 0.5rem;

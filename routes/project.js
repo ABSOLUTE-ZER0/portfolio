@@ -1,30 +1,18 @@
 const express = require("express");
 const router = express.Router();
-var multer = require("multer");
 var fs = require("fs");
 var path = require("path");
 
 const Work = require("../models/Work");
 
-var storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads");
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.fieldname + "-" + Date.now());
-  },
-});
-
-var upload = multer({ storage: storage });
-
 router.post("/upload/image", async (req, res) => {
   const img = {
-    data: fs.readFileSync(path.join(__dirname + "/uploads/" + "upload.jpg")),
-    contentType: "image/jpg",
+    data: fs.readFileSync(path.join(__dirname + "/uploads/" + "upload.png")),
+    contentType: "image/png",
   };
 
   try {
-    let work = await Work.findOne({ name: "Memory Game" });
+    let work = await Work.findOne({ name: "TechoTrade" });
 
     if (work) {
       work.img = img;
@@ -43,9 +31,10 @@ router.post("/upload/image", async (req, res) => {
 
 // GET ROUTE
 
-router.get("/", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
-    const work = await Work.find({});
+    const type = req.body.type
+    const work = await Work.find({showcase:type}).sort({order:1});
     res.json(work);
   } catch (err) {
     console.error(err.message);

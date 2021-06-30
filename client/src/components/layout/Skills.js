@@ -45,7 +45,6 @@ const Skills = ({ choice, home, setSkills }) => {
         <h1 className='titleStyle5'>
           <span>My&thinsp;</span>&thinsp;Skills
         </h1>
-
         <div>
           {home.loading ? (
             <Loader />

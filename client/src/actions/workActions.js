@@ -6,13 +6,13 @@ import {
 
 import API from "../api"
 
-export const setWork = () => async (dispatch) => {
+export const setWork = (type) => async (dispatch) => {
   try {
     dispatch({
       type: LOAD_WORK,
     });
 
-    const res = await API.get("/api/project");
+    const res = await API.post("/api/project" , type={type});
     if (res.data.errors) {
       dispatch({
         type: WORK_LOADING_FAIL,

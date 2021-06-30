@@ -121,7 +121,7 @@ const Home = () => {
         </div>
       </div>
       <Skills choice={choice} />
-      <RecentWork />
+      <RecentWork choice={choice}/>
       <div className='scroll'></div>
     </div>
   );
