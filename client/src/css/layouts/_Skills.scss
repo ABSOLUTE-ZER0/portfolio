@@ -58,6 +58,30 @@
       }
     }
   }
+
+  @include media-tablet{
+    &__myskills {
+      padding: 0 5rem;
+    }
+  }
+
+  @include media-medium{
+    &__myskills {
+      padding: 0 2rem;
+
+      h1{
+        font-size: 2rem;
+      }
+    }
+    div{
+      .skill{
+        padding: 1rem; 
+        img{
+          width: 6rem;
+        }
+      }
+    }
+  }
 }
 
 @keyframes name {

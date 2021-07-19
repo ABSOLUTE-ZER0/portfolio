@@ -11,9 +11,10 @@
     border-radius: 2rem;
 
     &-img {
-      height: 50rem;
+      height: auto;
+      width: 100%;
       margin: 0 auto;
-    border-radius: 2rem;
+      border-radius: 2rem;
     }
 
     &-h1,
@@ -35,7 +36,7 @@
   }
 
   &__carousel:hover {
-    img{
+    img {
       filter: contrast(50%) blur(2px);
     }
 
@@ -43,5 +44,13 @@
     div > p {
       display: block;
     }
+  }
+
+  @include media-tablet {
+    padding: 0 5rem;
+  }
+
+  @include media-medium {
+    padding: 2rem;
   }
 }

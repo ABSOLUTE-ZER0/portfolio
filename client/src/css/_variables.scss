@@ -2,8 +2,9 @@
 
 // Light Color Palette (Custom Properties)
 html[data-theme="light"] {
-  --color-background-main: rgb(231, 231, 231);
-  --color-background-main-m: rgb(206, 206, 208, 0.55);
+  --color-background-main: rgb(243, 247, 247);
+  --color-background-main-m: rgb(243, 247, 247, 0.55);
+  --color-background-main-m2: rgb(243, 247, 247, 0.2);
   --color-hover: rgb(255, 134, 191);
   --color-hover-m: rgba(255, 134, 191, 0.65);
   --color-active: rgb(184, 0, 0);
@@ -11,9 +12,12 @@ html[data-theme="light"] {
   --color-white: white;
   --color-white-m: rgba(255, 255, 255, 0.5);
   --color-black: black;
-  --color-black-m: rgba(0, 0, 0, 0.5);
+  --color-black-m: rgba(0, 0, 0, 0.75);
   --color-text: rgb(0, 0, 0);
-  --color-text-m: rgba(0, 0, 0, 0.5);
+  --color-text-m: rgba(0, 0, 0, 0.75);
+  --color-header: rgba(0, 0, 0, 0.904);
+  --color-header-m: rgba(0, 0, 0, 0.2);
+
 }
 
 // Dark Color Palette (Custom Properties)
@@ -30,8 +34,10 @@ html[data-theme="dark"] {
   --color-black-m: rgba(0, 0, 0, 0.5);
   --color-text: rgb(255, 255, 255);
   --color-text-m: rgba(255, 255, 255, 0.5);
-}
+  --color-header: rgba(255, 255, 255, 0.904);
+  --color-header-m: rgba(255, 255, 255, 0.2);
 
+}
 //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Font Weights *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 $font-weights: (
   "font-weight-thin": 100,

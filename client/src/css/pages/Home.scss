@@ -5,13 +5,15 @@
     background: url("../../images/home/black-back.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 80rem;
+    height: 100vh;
     display: flex;
     position: relative;
+    background-attachment: fixed;
+    padding-top: 10rem;
 
     img {
       position: absolute;
-      bottom: 0;
+      bottom: 10vh;
       left: 40%;
       transform: translateX(-50%);
       height: 70rem;
@@ -25,6 +27,7 @@
 
     .div1 {
       flex: 40%;
+
       .name {
         font-size: 6rem;
         text-align: right;
@@ -34,12 +37,14 @@
         margin-left: auto;
       }
     }
+
     .div2 {
       flex: 60%;
       padding-left: 25rem;
       margin-top: 25rem;
       padding-right: 10%;
       display: block;
+
       .title {
         font-size: 2rem;
         text-transform: capitalize;
@@ -121,10 +126,12 @@
   &__background[data-theme="light"] {
     background: url("../../images/home/white-back.jpg");
     background-size: cover;
+    background-attachment: fixed;
   }
 
   &__worktypes {
     margin-top: 10rem;
+
     &-choice {
       display: flex;
       justify-content: center;
@@ -251,6 +258,7 @@
       height: fit-content;
       padding-bottom: 10rem;
       flex-direction: column;
+
       img {
         right: 0%;
         left: unset;
@@ -266,8 +274,10 @@
           margin-top: 25rem;
         }
       }
+
       .div2 {
         padding-left: 5rem;
+
         .desc {
           font-size: 2rem;
         }
@@ -279,9 +289,12 @@
       }
     }
   }
+
   //*-*-*-*-*-*-*-*-*-*-- The 800px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
   @include media-large {
     &__background {
+      padding-top: 0rem;
+
       img {
         height: 50rem;
       }
@@ -310,6 +323,7 @@
           margin-top: 20rem;
         }
       }
+
       .div2 {
         margin-top: 15rem;
 
@@ -324,9 +338,17 @@
         }
       }
     }
+
+    &__worktypes {
+      &-choice {
+        &-button {
+          margin: calc(0.5rem + 0.5vw);
+        }
+      }
+    }
   }
 
-  //*-*-*-*-*-*-*-*-*-*-- The 600px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  //*-*-*-*-*-*-*-*-*-*-- The 400px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
   @include media-small {
     &__background {
       img {
@@ -339,8 +361,10 @@
           font-size: 3rem;
         }
       }
+
       .div2 {
         padding: 0 1rem;
+
         .title {
           font-size: 1.8rem;
           text-transform: capitalize;

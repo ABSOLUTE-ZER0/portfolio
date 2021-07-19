@@ -67,18 +67,6 @@ const Header = ({ page }) => {
           <li className='header__nav--links__item'>
             <a
               style={{
-                color: page === "about" && "var(--color-active)",
-                fontWeight: page === "about" && "700",
-              }}
-              href='/about'
-              data-text='About'>
-              About
-            </a>
-          </li>
-
-          <li className='header__nav--links__item'>
-            <a
-              style={{
                 color: page === "work" && "var(--color-active)",
                 fontWeight: page === "work" && "700",
               }}
@@ -88,6 +76,19 @@ const Header = ({ page }) => {
             </a>
           </li>
 
+          <li className='header__nav--links__item'>
+            <a
+              style={{
+                color: page === "blog" && "var(--color-active)",
+                fontWeight: page === "blog" && "700",
+              }}
+              href='https://www.abslzero.in'
+              target='blank'
+              data-text='Blog'>
+              Blog
+            </a>
+          </li>
+          
           <li className='header__nav--links__item'>
             <a
               style={{
