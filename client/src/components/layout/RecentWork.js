@@ -25,6 +25,7 @@ const RecentWork = ({ choice, setWork, work }) => {
             <Carousel.Item className="rw__carousel" key={index}>
               <img
                 className='d-block rw__carousel-img'
+                onClick={()=>{item.url && window.open(`${item.url}`)}}
                 src={
                   item.img &&
                   `data:${item.img.contentType};base64,${Buffer.from(

@@ -1,24 +1,24 @@
 //*-*-*-*-*-*-*-*-*-*-*-*-*-*- Shadows *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 .box-shadow {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.418);
+  box-shadow: 0 0.5rem 1rem var(--color-text-m);
 }
 
 .box-shadow-1 {
-  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.418);
+  box-shadow: 0 0.2rem 0.5rem var(--color-text-m);
 }
 
 .one-edge-shadow {
-  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.705);
+  box-shadow: 0 8px 6px -6px var(--color-text-m);
 }
 
 .one-edge-shadow-1 {
-  box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.445);
+  box-shadow: 0 5px 3px -3px var(--color-text-m);
 }
 
 .text-shadow {
   background-clip: text;
-  text-shadow: 0px 3px 3px rgb(0, 0, 0);
+  text-shadow: 0px 3px 3px var(--color-text);
 }
 
 .text-shadow-smooth {
@@ -242,6 +242,7 @@
 // pages
 @import "./pages/NotFound404";
 @import "./pages/Home";
+@import "./pages/Work";
 
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*- Placeholder Styles *-*-*-*-*-*-*-*-*-*-*-*-*
 // Background Properties

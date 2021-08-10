@@ -5,57 +5,49 @@ import RecentWork from "../layout/RecentWork";
 import me from "../../images/home/me.png";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-const Home = () => {
+const Home = ({ home }) => {
+  const [choice, setChoice] = useState("web");
+  const [currenttheme, setCurrenttheme] = useState(home.theme);
+
   useEffect(() => {
-    const scroll = document.querySelector(".scroll");
-    const headerElement = document.querySelector(".header");
-    let test = 0;
-
-    window.addEventListener("scroll", () => {
-      const currentscrollPosY = window.scrollY;
-      checkScrollTop(currentscrollPosY);
-      scroll.classList.toggle("active", currentscrollPosY > 200);
-    });
-
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+    if (currenttheme === "light") {
+      setLightMode();
+    } else {
+      setDarkMode();
     }
-
-    function checkScrollTop(currentscrollPosY) {
-      if (currentscrollPosY === 0) {
-        window.setTimeout(() => {
-          headerElement.classList.remove("active");
-          headerElement.classList.remove("hidden");
-          headerElement.classList.remove("moveUp");
-        }, 200);  
-      } else if (currentscrollPosY > 110) {
-        headerElement.classList.add("moveUp");
-        if (currentscrollPosY < test) {
-          headerElement.classList.add("active");
-          headerElement.classList.remove("hidden");
-        } else if (
-          currentscrollPosY > test &&
-          headerElement.classList.contains("active")
-        ) {
-          headerElement.classList.remove("active");
-          headerElement.classList.add("hidden");
-        }
-      }
-      test = currentscrollPosY;
-    }
-
-    scroll.addEventListener("click", () => {
-      scrollToTop();
-    });
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const [choice, setChoice] = useState("web");
+  const changeChoice = (type) => {
+    setChoice(type);
+
+    const currentSlide = document.querySelector(".carousel-item");
+    currentSlide && currentSlide.classList.add("active")
+
+  }
+
+  const setLightMode = () => {
+    setCurrenttheme("light");
+    const background = document.getElementById("home-back");
+    background.setAttribute("data-theme", "light");
+  };
+
+  const setDarkMode = () => {
+    setCurrenttheme("dark");
+    const background = document.getElementById("home-back");
+    background.setAttribute("data-theme", "dark");
+  };
+
+  if (localStorage.getItem("currentTheme") !== currenttheme) {
+    if (localStorage.getItem("currentTheme") === "light") {
+      setLightMode();
+    } else {
+      setDarkMode();
+    }
+  }
 
   return (
     <div className='container-custom'>
@@ -92,7 +84,7 @@ const Home = () => {
           <div className='home__worktypes-choice'>
             <button
               onClick={async () => {
-                setChoice("web");
+                changeChoice("web");
               }}
               className={classNames("home__worktypes-choice-button", {
                 active: choice === "web",
@@ -106,7 +98,7 @@ const Home = () => {
             </button>
             <button
               onClick={async () => {
-                setChoice("app");
+                changeChoice("app");
               }}
               className={classNames("home__worktypes-choice-button", {
                 active: choice === "app",
@@ -120,7 +112,7 @@ const Home = () => {
             </button>
             <button
               onClick={async () => {
-                setChoice("game");
+                changeChoice("game");
               }}
               className={classNames("home__worktypes-choice-button", {
                 active: choice === "game",
@@ -134,7 +126,7 @@ const Home = () => {
             </button>
             <button
               onClick={async () => {
-                setChoice("ds");
+                changeChoice("ds");
               }}
               className={classNames("home__worktypes-choice-button", {
                 active: choice === "ds",
@@ -156,4 +148,12 @@ const Home = () => {
   );
 };
 
-export default Home;
+Home.prototype = {
+  home: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  home: state.home,
+});
+
+export default connect(mapStateToProps, {})(Home);

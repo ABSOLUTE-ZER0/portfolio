@@ -16,8 +16,8 @@
   color: var(--color-text);
 
   &.moveUp {
-  top: -11rem;
-}
+    top: -11rem;
+  }
 
   &.active {
     position: fixed;
@@ -61,7 +61,7 @@
 
   &__overlay {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh + 11rem);
     background-color: var(--color-hover);
     position: fixed;
     opacity: 0;

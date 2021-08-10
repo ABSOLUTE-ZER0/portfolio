@@ -1,5 +1,6 @@
 import {
   LOAD_SKILLS,
+  SET_THEME,
   SKILLS_LOADED,
   SKILLS_LOADING_FAIL,
 } from "../actions/types";
@@ -30,5 +31,14 @@ export const setSkills = (type) => async (dispatch) => {
     dispatch({
       type: SKILLS_LOADING_FAIL,
     });
+  }
+};
+
+export const setTheme = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: SET_THEME,
+    });
+  } catch (error) {
   }
 };

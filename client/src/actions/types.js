@@ -12,3 +12,5 @@ export const ADD_WORK = 'ADD_WORK';
 export const LOAD_WORK = 'LOAD_WORK';
 export const WORK_LOADED = 'WORK_LOADED';
 export const WORK_LOADING_FAIL = 'WORK_LOADING_FAIL';
+export const SET_THEME = 'SET_THEME';
+

@@ -1,41 +1,119 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "../../images/logo/logo.png";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { setTheme } from "../../actions/homeActions";
 
-const Header = ({ page }) => {
+const Header = ({ page, setTheme }) => {
+  useEffect(() => {
+    const scroll = document.querySelector(".scroll");
+    const headerElement = document.querySelector(".header");
+    let test = 0;
+
+    window.addEventListener("scroll", () => {
+      const currentscrollPosY = window.scrollY;
+      checkScrollTop(currentscrollPosY);
+      scroll.classList.toggle("active", currentscrollPosY > 200);
+    });
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+
+    function checkScrollTop(currentscrollPosY) {
+      if (currentscrollPosY === 0) {
+        window.setTimeout(() => {
+          headerElement.classList.remove("active");
+          headerElement.classList.remove("hidden");
+          headerElement.classList.remove("moveUp");
+        }, 200);
+      } else if (currentscrollPosY > 110) {
+        headerElement.classList.add("moveUp");
+        if (currentscrollPosY < test) {
+          headerElement.classList.add("active");
+          headerElement.classList.remove("hidden");
+        } else if (
+          currentscrollPosY > test &&
+          headerElement.classList.contains("active")
+        ) {
+          headerElement.classList.remove("active");
+          headerElement.classList.add("hidden");
+        }
+      }
+      test = currentscrollPosY;
+    }
+
+    scroll.addEventListener("click", () => {
+      scrollToTop();
+    });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (localStorage.getItem("currentTheme") === "light") {
+      setLightMode(false);
+    } else {
+      setDarkMode(false);
+    }
+    setTheme();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  let htmlElement = document.documentElement;
   const menuToggle = () => {
     const header = document.querySelector(".header");
     const menu = document.querySelector(".header__menu");
     const overlay = document.querySelector(".header__overlay");
 
+    htmlElement.classList.toggle("noscroll");
     menu.classList.toggle("open");
     header.classList.toggle("open");
     overlay.classList.toggle("open");
   };
 
-  const switchDarkMode = () => {
+  let smoothTrans = () => {
+    htmlElement.classList.add("transition");
+
+    window.setTimeout(() => {
+      htmlElement.classList.remove("transition");
+    }, 1000);
+  };
+
+  const setLightMode = (trans = true) => {
     let checkbox = document.querySelector('input[name="theme"]');
-    let htmlElement = document.documentElement;
-    const background = document.getElementById("home-back");
+    checkbox.checked = false;
+    localStorage.setItem("currentTheme", "light");
 
-    checkbox.addEventListener("change", () => {
-      if (checkbox.checked) {
-        smoothTrans();
-        htmlElement.setAttribute("data-theme", "light");
-        background.setAttribute("data-theme", "light");
-      } else {
-        smoothTrans();
-        htmlElement.setAttribute("data-theme", "dark");
-        background.setAttribute("data-theme", "dark");
-      }
-    });
+    if (trans) {
+      smoothTrans();
+    }
+    htmlElement.setAttribute("data-theme", "light");
+  };
 
-    let smoothTrans = () => {
-      htmlElement.classList.add("transition");
+  const setDarkMode = (trans = true) => {
+    let checkbox = document.querySelector('input[name="theme"]');
+    checkbox.checked = true;
+    localStorage.setItem("currentTheme", "dark");
 
-      window.setTimeout(() => {
-        htmlElement.classList.remove("transition");
-      }, 1000);
-    };
+    if (trans) {
+      smoothTrans();
+    }
+    htmlElement.setAttribute("data-theme", "dark");
+  };
+
+  const toggleTheme = () => {
+    setTheme();
+    const currentTheme = localStorage.getItem("currentTheme");
+    if (currentTheme === "dark") {
+      setLightMode();
+    } else {
+      setDarkMode();
+    }
   };
 
   return (
@@ -82,13 +160,13 @@ const Header = ({ page }) => {
                 color: page === "blog" && "var(--color-active)",
                 fontWeight: page === "blog" && "700",
               }}
-              href='https://www.abslzero.in'
+              href='https://www.abslzero.in/blog'
               target='blank'
               data-text='Blog'>
               Blog
             </a>
           </li>
-          
+
           <li className='header__nav--links__item'>
             <a
               style={{
@@ -103,7 +181,7 @@ const Header = ({ page }) => {
 
           <div className='header__nav--links__toggle-container'>
             <input
-              onClick={switchDarkMode}
+              onClick={toggleTheme}
               type='checkbox'
               id='toggle'
               name='theme'
@@ -115,4 +193,12 @@ const Header = ({ page }) => {
   );
 };
 
-export default Header;
+Header.prototype = {
+  home: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  home: state.home,
+});
+
+export default connect(mapStateToProps, { setTheme })(Header);

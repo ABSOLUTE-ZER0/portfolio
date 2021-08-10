@@ -67,11 +67,11 @@ $font-sizes: (
 
 //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Break Points *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 $break-points: (
-  "break-point-small": 400px,
-  "break-point-medium": 600px,
-  "break-point-large": 800px,
-  "break-point-tablet": 1000px,
-  "break-point-desktop": 1300px,
+  "break-point-small": 399px,
+  "break-point-medium": 575px,
+  "break-point-large": 767px,
+  "break-point-tablet": 991px,
+  "break-point-desktop": 1199px,
 );
 
 @function break-point($break-point-limit) {

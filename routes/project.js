@@ -7,12 +7,12 @@ const Work = require("../models/Work");
 
 router.post("/upload/image", async (req, res) => {
   const img = {
-    data: fs.readFileSync(path.join(__dirname + "/uploads/" + "upload.png")),
-    contentType: "image/png",
+    data: fs.readFileSync(path.join(__dirname + "/uploads/" + "upload.jpg")),
+    contentType: "image/jpg",
   };
 
   try {
-    let work = await Work.findOne({ name: "TechoTrade" });
+    let work = await Work.findOne({ name: "Paladins Randomizer" });
 
     if (work) {
       work.img = img;
@@ -35,6 +35,16 @@ router.post("/", async (req, res) => {
   try {
     const type = req.body.type
     const work = await Work.find({showcase:type}).sort({order:1});
+    res.json(work);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+router.get("/", async (req, res) => {
+  try {
+    const work = await Work.find({}).sort({name:1});
     res.json(work);
   } catch (err) {
     console.error(err.message);
