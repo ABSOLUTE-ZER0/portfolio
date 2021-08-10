@@ -72,7 +72,7 @@ const Home = ({ home }) => {
               my current bourne.
             </p>
             <p className='phone'>P: +91 6300 499 255</p>
-            <p className='email'>E: sricharan.zero@gmail.com</p>
+            <p className='email'>E: sricharan@abslzero.in</p>
             <div className='links'>
               <Link to='/contact'>Get in touch</Link>
             </div>

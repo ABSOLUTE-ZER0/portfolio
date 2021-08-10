@@ -19,12 +19,12 @@ const Work = ({ work, setAllWork }) => {
     <div>
       <Header page='work' />
       <div className='work container'>
-      <h1 className="titleStyle5">Some of my work</h1>
+        <h1 className='titleStyle5'>Some of my work</h1>
         <div className='work__card'>
           {work.loading ? (
             <Loader />
-            ) : (
-          work.works &&
+          ) : (
+            work.works &&
             work.works.map((item, index) => (
               <div
                 key={index}
@@ -47,14 +47,17 @@ const Work = ({ work, setAllWork }) => {
                 <h2>{item.name}</h2>
                 <div className='work__card-single-details'>
                   <h4>Description</h4>
-                  {item.app_desc.map((desc,i) => (
+                  {item.app_desc.map((desc, i) => (
                     <p>{desc}</p>
                   ))}
                 </div>
               </div>
-            )))}
+            ))
+          )}
         </div>
-        <h1 style={{marginBottom: "5rem"}} className="titleStyle5">My journey so far(Boring Stuff) </h1>
+        <h1 style={{ marginBottom: "5rem" }} className='titleStyle5'>
+          My journey so far(Boring Stuff){" "}
+        </h1>
         <p>
           I wrote my first coding in 2019. The concept of programming and
           algorithms intrigued me to the point that I learnt 3 major programming

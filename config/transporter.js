@@ -1,8 +1,8 @@
 const nodemailer = require('nodemailer');
-const config = require("config");
+require('dotenv').config()
 
-const user = config.get("appMailId");
-const pass = config.get("appMailPassword");
+const user = process.env.FROMMAIL;
+const pass = process.env.MAILPASSWORD;
 
 const transporter = nodemailer.createTransport({
   port: 465,
