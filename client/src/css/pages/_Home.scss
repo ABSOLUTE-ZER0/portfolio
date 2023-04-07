@@ -1,0 +1,390 @@
+.home {
+  grid-column: container-start / container-end;
+
+  &__background {
+    background: url("../../images/home/black-back.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    background-attachment: fixed;
+    padding-top: 10rem;
+
+    img {
+      position: absolute;
+      bottom: 10vh;
+      left: 40%;
+      transform: translateX(-50%);
+      height: 70rem;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    div {
+      color: var(--color-text);
+    }
+
+    .div1 {
+      flex: 40%;
+
+      .name {
+        font-size: 6rem;
+        text-align: right;
+        padding-right: 6rem;
+        font-family: "Berkshire Swash", cursive;
+        margin-top: 20rem;
+        margin-left: auto;
+      }
+    }
+
+    .div2 {
+      flex: 60%;
+      padding-left: 25rem;
+      margin-top: 25rem;
+      padding-right: 10%;
+      display: block;
+
+      .title {
+        font-size: 2rem;
+        text-transform: capitalize;
+        color: var(--color-active);
+        margin-bottom: 2rem;
+      }
+
+      .subtitle {
+        font-size: 3rem;
+        font-weight: 500;
+        margin-bottom: 2rem;
+      }
+
+      .desc {
+        font-size: 1.7rem;
+        line-height: 1.5;
+        font-weight: 300;
+        margin-bottom: 2rem;
+      }
+
+      .phone,
+      .email {
+        color: var(--color-active);
+        font-size: 1.5rem;
+        margin-bottom: 0rem;
+        padding: 0;
+        font-weight: 600;
+      }
+
+      .links {
+        display: flex;
+        margin-top: 1rem;
+
+        a:link:first-child,
+        a:visited:first-child {
+          font-size: font-size(font-size-small);
+          padding: calc(0.5rem + 0.5vh) calc(1rem + 1vw);
+          text-transform: uppercase;
+          position: relative;
+          border-radius: 0.5rem;
+          z-index: 1;
+          transition: all 0.5s ease-in-out;
+          background-color: var(--color-hover);
+          border: 0.2rem solid var(--color-hover);
+          color: var(--color-text);
+          margin-right: calc(1rem + 2vw);
+          font-weight: 600;
+          margin-top: 1rem;
+        }
+
+        a:link:first-child::before,
+        a:visited:first-child::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background-color: var(--color-white);
+          border-radius: inherit;
+          z-index: -1;
+          transform: scale(0);
+          transition: all 0.5s ease-in-out;
+        }
+
+        a:hover:first-child::before,
+        a:active:first-child::before {
+          transform: scale(1);
+        }
+
+        a:first-child:hover,
+        a:first-child:active {
+          color: var(--color-hover);
+        }
+      }
+    }
+  }
+
+  &__background[data-theme="light"] {
+    background: url("../../images/home/white-back.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  &__worktypes {
+    margin-top: 10rem;
+
+    &-choice {
+      display: flex;
+      justify-content: center;
+
+      &-button {
+        color: var(--color-text);
+        font-size: font-size(font-size-xsmall);
+        display: flex;
+        flex-flow: column;
+        margin: 0 2rem;
+        font-weight: 900;
+        height: 12rem;
+        width: 12rem;
+        background-color: transparent;
+        align-items: center;
+        justify-content: space-evenly;
+        text-transform: uppercase;
+        border-radius: 0.5rem;
+        border: 0;
+        position: relative;
+        transition: all 0.5s ease-in-out;
+        overflow: hidden;
+
+        i {
+          color: var(--color-text);
+          font-size: 2.5rem;
+        }
+
+        span {
+          display: block;
+          position: absolute;
+        }
+
+        span:first-child {
+          top: 0;
+          left: -100%;
+          height: 0.2rem;
+          width: 100%;
+          background: linear-gradient(90deg, transparent, var(--color-hover));
+          transition: 0.5s;
+          transition-delay: 1s;
+        }
+
+        span:nth-child(2) {
+          top: -100%;
+          right: 0;
+          height: 100%;
+          width: 0.2rem;
+          background: linear-gradient(180deg, transparent, var(--color-hover));
+          transition: 0.5s;
+          transition-delay: 0.75s;
+        }
+
+        span:nth-child(3) {
+          bottom: 0;
+          right: -100%;
+          height: 0.2rem;
+          width: 100%;
+          background: linear-gradient(270deg, transparent, var(--color-hover));
+          transition: 0.7s;
+          transition-delay: 0.25s;
+        }
+
+        span:nth-child(4) {
+          top: 100%;
+          left: 0;
+          height: 100%;
+          width: 0.2rem;
+          background: linear-gradient(360deg, transparent, var(--color-hover));
+          transition: 0.5s;
+          transition-delay: 0s;
+        }
+
+        &:hover,
+        &.active {
+          background: var(--color-hover);
+          transition-delay: 1s;
+        }
+
+        &:hover span:first-child,
+        &.active span:first-child {
+          left: 100%;
+          transition-duration: 1s;
+          transition-delay: 0s;
+        }
+
+        &:hover span:nth-child(2),
+        &.active span:nth-child(2) {
+          top: 100%;
+          transition-duration: 1s;
+          transition-delay: 0.25s;
+        }
+
+        &:hover span:nth-child(3),
+        &.active span:nth-child(3) {
+          right: 100%;
+          transition-duration: 1s;
+          transition-delay: 0.5s;
+        }
+
+        &:hover span:nth-child(4),
+        &.active span:nth-child(4) {
+          top: -100%;
+          transition-duration: 1s;
+          transition-delay: 0.75s;
+        }
+      }
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 1300px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-desktop {
+    &__background {
+      .div2 {
+        padding-left: 20rem;
+        padding-right: 5%;
+      }
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 1000px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-tablet {
+    &__background {
+      height: fit-content;
+      padding-bottom: 10rem;
+      flex-direction: column;
+
+      img {
+        right: 0%;
+        left: unset;
+        height: 60rem;
+        top: 10rem;
+      }
+
+      .div1 {
+        .name {
+          font-size: 6rem;
+          text-align: left;
+          margin-left: 10rem;
+          margin-top: 25rem;
+        }
+      }
+
+      .div2 {
+        padding-left: 5rem;
+
+        .desc {
+          font-size: 2rem;
+        }
+
+        .phone,
+        .email {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 800px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-large {
+    &__background {
+      padding-top: 0rem;
+
+      img {
+        height: 50rem;
+      }
+
+      .div1 {
+        .name {
+          font-size: 5rem;
+          margin-left: 5rem;
+        }
+      }
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 600px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-medium {
+    &__background {
+      img {
+        right: -5%;
+        height: 30rem;
+      }
+
+      .div1 {
+        .name {
+          font-size: 3.5rem;
+          margin-left: 5rem;
+          margin-top: 20rem;
+        }
+      }
+
+      .div2 {
+        margin-top: 15rem;
+
+        .subtitle {
+          font-size: 2.5rem;
+          font-weight: 500;
+          margin-bottom: 2rem;
+        }
+
+        .desc {
+          font-size: 1.7rem;
+        }
+      }
+    }
+
+    &__worktypes {
+      &-choice {
+        &-button {
+          margin: calc(0.5rem + 0.5vw);
+        }
+      }
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 400px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-small {
+    &__background {
+      img {
+        right: -10%;
+        height: 30rem;
+      }
+
+      .div1 {
+        .name {
+          font-size: 3rem;
+        }
+      }
+
+      .div2 {
+        padding: 0 1rem;
+
+        .title {
+          font-size: 1.8rem;
+          text-transform: capitalize;
+          color: var(--color-active);
+          margin-bottom: 2rem;
+        }
+
+        .subtitle {
+          font-size: 2.3rem;
+          font-weight: 500;
+          margin-bottom: 2rem;
+        }
+
+        .desc {
+          font-size: 1.7rem;
+          line-height: 1.5;
+          font-weight: 300;
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  }
+}
